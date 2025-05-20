@@ -1,0 +1,153 @@
+nombre,continente,altura,anio,visitas,calificacion
+Gran Mezquita de Djenné,África,20,1907,0.30,Malo
+Mezquita Hassan II,África,210,1993,0.60,Malo
+Memorial del Genocidio de Kigali,África,15,2004,0.25,Malo
+Mezquita de Djingareyber,África,13,1327,0.05,Malo
+Gran Zimbabwe,África,11,1100,0.03,Malo
+Iglesias de Lalibela,África,12,1200,0.04,Malo
+Castillo de San Jorge da Mina,África,33,1637,0.10,Malo
+Mezquita de Sankore,África,12,1400,0.04,Malo
+Mezquita de Agadez,África,27,1515,0.03,Malo
+Fuerte de Cape Coast,África,20,1726,0.11,Malo
+Palacio de Abomey,África,15,1885,0.05,Malo
+Obelisco de Buenos Aires,América,67.5,1930,1.00,Regular
+Machu Pichu,América,2430,1450,1.50,Regular
+Monte Rushmore,América,18,1930,2.00,Bueno
+Cristo Redentor,América,30,1930,2.00,Bueno
+Estatua de la Libertad,América,93,1880,3.50,Bueno
+Templo de Kukulkán (Chichén Itzá),América,30,1050,2.60,Bueno
+Mitla,América,9,1100,0.18,Malo
+Huaca del Sol y la Luna,América,21,1200,0.05,Malo
+Cusco,América,3399,1300,1.50,Regular
+Iglesia de San Francisco Acatepec,América,25,1650,0.03,Malo
+Iglesia de San Francisco de Asís,América,28,1766,0.05,Malo
+Catedral Metropolitana de México,América,67,1573,20.00,Excelente
+Burj Khalifa,Asia,828,2010,2.00,Bueno
+Angkor Wat,Asia,65,1100,2.60,Bueno
+Taj Mahal,Asia,73,1640,5.00,Excelente
+Puerta de la India (India),Asia,42,1930,1.50,Regular
+Templo Brihadisvara,Asia,66,1010,0.40,Malo
+Angkor Thom,Asia,43,1200,2.00,Bueno
+Mezquita Jameh de Yazd,Asia,52,1324,0.10,Malo
+Ciudad Prohibida,Asia,10,1406,14.00,Excelente
+Fuerte de Agra,Asia,21,1565,2.50,Bueno
+Palacio de Verano,Asia,60,1750,10.00,Excelente
+Santuario Meiji ,Asia,12,1880,10.00,Excelente
+Catedral de San Basilio,Europa,47.5,1550,1.00,Regular
+Torre de Pisa,Europa,56,1170,1.60,Regular
+Catedral de Notre Dame,Europa,69,1160,13.00,Excelente
+Big Ben,Europa,96,1850,2.50,Bueno
+Sagrada Familia,Europa,172.5,1890,4.80,Bueno
+Mezquita Azul,Europa,43,1610,5.00,Excelente
+Torre Eiffel,Europa,330,1890,7.00,Excelente
+Palacio de Versalles,Europa,44,1670,7.00,Excelente
+Abadía de Cluny III,Europa,30,1088,0.10,Malo
+Palazzo Vecchio,Europa,94,1299,1.20,Regular
+Catedral de Santa María del Fiore,Europa,114,1300,2.00,Bueno
+Castillo de Vlad,Europa,60,1400,0.60,Malo
+Palacio de Catalina,Europa,30,1750,0.50,Malo
+Atomium,Europa,102,1958,1.20,Regular
+Moáis de Isla de Pascua,Oceanía,10,1300,0.70,Malo
+Ópera de Sídney,Oceanía,65,1970,8.00,Excelente
+Sky Tower,Oceanía,328,1997,0.50,Malo
+Parlamento de Canberra,Oceanía,81,1988,0.40,Malo
+Haʻamonga ʻa Maui ,Oceanía,5,1000,0.02,Malo
+Ahu Nau Nau ,Oceanía,7,1100,0.09,Malo
+Ahu Tongariki,Oceanía,14,1200,0.15,Malo
+Nan Madol,Oceanía,15,1300,0.01,Malo
+Marae Taputapuatea,Oceanía,3,1400,0.05,Malo
+Ahu Akivi,Oceanía,140,1500,0.10,Malo
+Fortaleza de Makassar,Oceanía,12,1667,0.20,Malo
+Casa Bai (Palau),Oceanía,7,1700,0.15,Malo
+Catedral de Apia,Oceanía,23.8,1857,0.12,Malo
+Monasterio de Rila,Europa,23,1140,0.45,Malo
+Castillo de Himeji,Asia,45,1346,3.00,Bueno
+Iglesia de Hallgrímskirkja,Europa,74.5,1945,0.60,Regular
+Iglesia de Boyana,Europa,10,1010,0.20,Malo
+Castillo de Neuschwanstein,Europa,65,1886,1.40,Regular
+Templo Dorado (Amritsar),Asia,30,1581,6.00,Excelente
+Basílica de San Marcos,Europa,43,1063,1.80,Bueno
+Pagoda de Shwedagon,Asia,112,1485,4.00,Bueno
+Castillo de Eltz,Europa,35,1157,0.70,Regular
+Abadía de Westminster,Europa,69,1269,1.90,Bueno
+Puente de Carlos (Praga),Europa,13,1402,5.00,Excelente
+La Alhambra,Europa,30,1333,2.70,Bueno
+Castillo de Chambord,Europa,56,1547,1.00,Regular
+Kremlin de Moscú,Europa,45,1495,4.20,Bueno
+Santuario de Ise,Asia,14,1600,1.50,Regular
+Castillo Matsumoto,Asia,30,1504,1.00,Regular
+Wat Xieng Thong,Asia,30,1560,0.25,Malo
+Monasterio de San Lorenzo de El Escorial,Europa,60,1584,2.00,Bueno
+Castillo de Praga,Europa,70,1320,3.00,Bueno
+Castillo de Osaka,Asia,58,1583,2.80,Bueno
+Catedral de Salisbury,Europa,123,1258,1.20,Regular
+Iglesia de San Francisco (Quito),América,27,1534,0.90,Malo
+Catedral de Cusco,América,30,1654,1.10,Regular
+Teatro Colón (Argentina),América,28,1908,0.80,Regular
+Catedral de Córdoba (Argentina),América,40,1784,0.50,Malo
+Casa Rosada (Argentina),América,30,1898,1.00,Regular
+Castillo de Chenonceau,Europa,20,1522,0.95,Regular
+Fortaleza de Suomenlinna,Europa,18,1748,0.60,Malo
+Palacio de Pena,Europa,85,1854,2.20,Bueno
+Catedral de Milán,Europa,108,1386,5.50,Excelente
+Castillo de Leeds,Europa,25,1119,0.75,Regular
+Castillo de Neuschwanstein,Europa,65,1886,1.40,Regular
+Templo Dorado (Amritsar),Asia,30,1581,6.00,Excelente
+Basílica de San Marcos,Europa,43,1063,1.80,Bueno
+Pagoda de Shwedagon,Asia,112,1485,4.00,Bueno
+Castillo de Eltz,Europa,35,1157,0.70,Regular
+Abadía de Westminster,Europa,69,1269,1.90,Bueno
+Puente de Carlos (Praga),Europa,13,1402,5.00,Excelente
+La Alhambra,Europa,30,1333,2.70,Bueno
+Castillo de Chambord,Europa,56,1547,1.00,Regular
+Kremlin de Moscú,Europa,45,1495,4.20,Bueno
+Santuario de Ise,Asia,14,1600,1.50,Regular
+Castillo Matsumoto,Asia,30,1504,1.00,Regular
+Wat Xieng Thong,Asia,30,1560,0.25,Malo
+Monasterio de San Lorenzo de El Escorial,Europa,60,1584,2.00,Bueno
+Castillo de Praga,Europa,70,1320,3.00,Bueno
+Castillo de Osaka,Asia,58,1583,2.80,Bueno
+Catedral de Salisbury,Europa,123,1258,1.20,Regular
+Iglesia de San Francisco (Quito),América,27,1534,0.90,Malo
+Catedral de Cusco,América,30,1654,1.10,Regular
+Teatro Colón (Argentina),América,28,1908,0.80,Regular
+Catedral de Córdoba (Argentina),América,40,1784,0.50,Malo
+Casa Rosada (Argentina),América,30,1898,1.00,Regular
+Castillo de Chenonceau,Europa,20,1522,0.95,Regular
+Fortaleza de Suomenlinna,Europa,18,1748,0.60,Malo
+Palacio de Pena,Europa,85,1854,2.20,Bueno
+Catedral de Milán,Europa,108,1386,5.50,Excelente
+Castillo de Leeds,Europa,25,1119,0.75,Regular
+Catedral de San Vito,Europa,96,1344,1.30,Regular
+Mezquita de Córdoba,Europa,23,987,1.70,Bueno
+Castillo de Himeji,Asia,45,1346,3.00,Bueno
+Gran Mezquita de Djenné,África,20,1907,0.30,Malo
+Mezquita Hassan II,África,210,1993,0.60,Malo
+Memorial del Genocidio de Kigali,África,15,2004,0.25,Malo
+Castillo de Leeds,Europa,25,1119,0.75,Regular
+Templo de la Nube Eterna,Asia,176.8,1637,9.48,Excelente
+Palacio de los Vientos,Asia,136.5,1763,9.37,Excelente
+Santuario del Sol Rojo,Asia,34.5,1351,8.47,Regular
+Fortaleza del Lago Azul,Asia,118.7,1744,7.70,Regular
+Pagoda de los Cuatro Caminos,Asia,40.6,1606,12.09,Bueno
+Castillo de las Mil Puertas,Asia,55.2,1033,3.84,Bueno
+Mezquita de la Media Luna,Asia,146.1,1672,7.80,Bueno
+Templo del Tigre Blanco,Asia,195.6,1885,10.78,Bueno
+Palacio de los Lotos,Asia,109.6,1618,8.14,Bueno
+Monasterio de Jade,Asia,148,1572,3.80,Bueno
+Santuario de las Estrellas,Oceanía,57.5,1344,13.18,Bueno
+Catedral del Sur Profundo,Oceanía,152.5,1445,5.55,Bueno
+Iglesia de la Luz del Alba,Oceanía,189.1,1053,8.91,Bueno
+Ciudadela de los Andes,Oceanía,128.7,1343,1.89,Regular
+Templo de las Llamas Eternas,Oceanía,36.2,1429,13.83,Excelente
+Basílica del Río Sagrado,Oceanía,41.1,1878,5.38,Excelente
+Pagoda del Eco Silente,Oceanía,63.8,1302,13.00,Excelente
+Templo del Árbol Sagrado,Oceanía,97.8,1401,4.50,Regular
+Mezquita de las Mil Voces,Oceanía,47.8,1352,11.58,Excelente
+Fortaleza del Viento Dorado,Oceanía,159.7,1202,2.02,Bueno
+Monumento a la Unidad Africana,África,50,1982,1.20,Regular
+Virgen de la Paz,América,46.7,1983,0.40,Malo
+Cristo de la Concordia,América,40.4,1994,0.60,Regular
+Daibutsu de Ushiku,Asia,120,1993,1.80,Excelente
+La Madre Patria Llama,Europa,85,1967,1.70,Bueno
+Torre Eiffel,Europa,330,1889,7.00,Excelente
