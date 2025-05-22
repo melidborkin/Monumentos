@@ -1,6 +1,6 @@
-# VD | Maqueta marcas y canales
+# Monumentos icónicos
 
-### Visualización de datos de medallistas olímpicos (HTML, CSS, D3 y Svelte)
+### Visualización de monumentos icónicos del mundo (HTML, CSS, D3 y Svelte)
 
 ---
 
@@ -11,8 +11,7 @@
 ```bash
 | src
 | -- data
-| ---- athletes.csv
-| ---- athletes.json
+| ---- monumentos.csv
 ```
 
 ## Boceto
