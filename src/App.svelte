@@ -1,11 +1,10 @@
-<!-- Script JS -->
-
 <script>
   import * as d3 from "d3";
   import { onMount } from "svelte";
   import monumentos from "/src/data/Monumentos - Hoja 1.csv";
 
   let svgMap = {};
+  let activeColumn = null;
 
   // Convierte los valores altura, anio y visitas a números
   monumentos.forEach(m => {
@@ -13,11 +12,6 @@
     m.anio = +m.anio;
     m.visitas = +m.visitas;
   });
-
-  // Crea una escala de raíz cuadrada (D3.js) que transforma alturas reales (entre 10 y 2430 metros) a un rango visual de tamaños (entre 30 y 100 píxeles).
-  const escalaAltura = d3.scaleSqrt()
-    .domain([10, 2430])
-    .range([30, 100]);
 
   // Asigna un color específico a cada calificación ("Malo", "Regular", "Bueno", "Excelente").
   const colorCalificacion = d3.scaleOrdinal()
@@ -29,6 +23,13 @@
 
   // Genera los siglos del milenio (del 1000 al 1900, eje X) para posicionar los monumentos.
   const siglos = Array.from({ length: 10 }, (_, i) => 1000 + i * 100);
+  
+  // Función para convertir siglos a números romanos
+  function sigloARomano(siglo) {
+    const sigloNumero = siglo / 100;
+    const romanos = ["X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX"];
+    return romanos[sigloNumero - 10]; // Restamos 10 porque empezamos en el siglo X (1000s)
+  }
 
   // Devuelve el nombre del archivo SVG correspondiente según la cantidad de visitas anuales.
   function svgPorVisitas(visitas) {
@@ -56,18 +57,24 @@
   }
 
   // Hace que los SVGs se carguen automáticamente cuando la visualización aparece en pantalla.
-  onMount(fetchSVGs);
+  onMount(() => {
+    fetchSVGs();
+  });
 
   let tooltip;
 
   function showTooltip(event, m) {
     tooltip.innerHTML = `
-      <strong>${m.nombre}</strong><br>
-      Continente: ${m.continente}<br>
-      Altura: ${m.altura} m<br>
-      Año: ${m.anio}<br>
-      Visitas: ${m.visitas} M<br>
-      Calificación: ${m.calificacion}
+      <div class="tooltip-header" style="background-color: ${colorCalificacion(m.calificacion)}">
+        <strong>${m.nombre}</strong>
+      </div>
+      <div class="tooltip-content">
+        <div class="tooltip-row"><span class="tooltip-label">Continente:</span> ${m.continente}</div>
+        <div class="tooltip-row"><span class="tooltip-label">Altura:</span> ${m.altura.toLocaleString()} m</div>
+        <div class="tooltip-row"><span class="tooltip-label">Año:</span> ${m.anio}</div>
+        <div class="tooltip-row"><span class="tooltip-label">Visitas:</span> ${m.visitas} M</div>
+        <div class="tooltip-row"><span class="tooltip-label">Calificación:</span> ${m.calificacion}</div>
+      </div>
     `;
     tooltip.style.display = "block";
     tooltip.style.left = event.pageX + 15 + "px";
@@ -78,35 +85,48 @@
     tooltip.style.display = "none";
   }
 
+  function showSigloTooltip(event, siglo) {
+    tooltip.innerHTML = `
+      <div class="tooltip-header tooltip-header-siglo">
+        <strong>Siglo ${sigloARomano(siglo)}</strong>
+      </div>
+      <div class="tooltip-content">
+        <div class="tooltip-row">Años ${siglo} - ${siglo + 99}</div>
+      </div>
+    `;
+    tooltip.style.display = "block";
+    tooltip.style.left = event.pageX + 15 + "px";
+    tooltip.style.top = event.pageY + 15 + "px";
+  }
+
+  function setActiveColumn(siglo) {
+    activeColumn = siglo;
+  }
+
+  function clearActiveColumn() {
+    activeColumn = null;
+  }
+
+  // Función para obtener monumentos por celda (limitado a 9)
+  function getMonumentosPorCelda(continente, siglo) {
+    return monumentos
+      .filter(m => m.continente === continente && m.anio >= siglo && m.anio < siglo + 100)
+      .slice(0, 9); // Limitar a máximo 9 monumentos por celda
+  }
 </script>
 
 <main>
-  <h1>Monumentos icónicos del mundo</h1>
-  <h2>Una mirada visual a los monumentos más representativos de la historia global. Cada celda representa un siglo. Cada fila, un continente. Cada figura, un monumento. Todo en una sola vista.</h2>
-  <div class="sistema">
-    <div class = "calificacion"> <strong>Calificación:</strong>
-      <div class="colores">
-        <div class="color">
-          <div class="cuadro" style="background:#912F27">Malo</div>
-          <span>Menos de 1 millon</span>
-        </div>
-        <div class="color">
-          <div class="cuadro" style="background:#EA7B4D">Regular</div>
-          <span>1 millon - 2 millones</span>
-        </div>
-        <div class="color">
-          <div class="cuadro" style="background:#A2D4D3">Bueno</div>
-          <span>2 millones - 5 millon</span>
-        </div>
-        <div class="color">
-          <div class="cuadro" style="background:#3B7B78">Excelente</div>
-          <span>Más de 5 millones</span>
-        </div>
-      </div>
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Monumentos icónicos del mundo</h1>
+      <h2>Una mirada visual a los monumentos más representativos de la historia global. Cada celda representa un siglo. Cada fila, un continente. Cada figura, un monumento. Todo en una sola vista.</h2>
     </div>
-
-    <div class = "visitas">
-        <strong>Visitas anuales:</strong>
+  </div>
+  
+  <div class="sistema">
+    <div class="leyenda-container">
+      <div class="visitas">
+        <h3>Visitas anuales</h3>
         <div class="formas">
           <div class="forma">
             <img src="/images/menosde1mm.svg" alt="Menos de 1 millón de visitas anuales"/>
@@ -146,42 +166,106 @@
           </div>
         </div>
       </div>
-  </div>
 
-  <div class="matriz">
-    {#each continentes as cont}
-      <div class="fila">
-        <div class="label-y">{cont}</div>
-        <div class="celdas">
-          {#each siglos as siglo}
-            <div class="celda">
-              {#each monumentos.filter(m => m.continente === cont && m.anio >= siglo && m.anio < siglo + 100) as m}
-                <div
-                  class="monumento"
-                  style="width: {escalaAltura(m.altura)}px; height: {escalaAltura(m.altura)}px; color: {colorCalificacion(m.calificacion)}"
-                  on:mousemove={(e) => showTooltip(e, m)}
-                  on:mouseleave={hideTooltip}
-                  role="img"
-                  aria-label={`Monumento: ${m.nombre}, ${m.calificacion}, ${m.visitas}M visitas`}
-                >
-                  {@html svgMap[svgPorVisitas(m.visitas)] || ''}
-                </div>
-              {/each}
-            </div>
-          {/each}
+      <div class="calificacion"> 
+        <h3>Calificación (medido en cantidad de visitas)</h3>
+        <div class="colores">
+          <div class="color">
+            <div class="color-circle" style="background-color: #912F27;"></div>
+            <span class="color-name">Malo</span>
+            <span class="color-desc">Menos de 1M</span>
+          </div>
+          <div class="color">
+            <div class="color-circle" style="background-color: #EA7B4D;"></div>
+            <span class="color-name">Regular</span>
+            <span class="color-desc">1M - 2M</span>
+          </div>
+          <div class="color">
+            <div class="color-circle" style="background-color: #A2D4D3;"></div>
+            <span class="color-name">Bueno</span>
+            <span class="color-desc">2M - 5M</span>
+          </div>
+          <div class="color">
+            <div class="color-circle" style="background-color: #3B7B78;"></div>
+            <span class="color-name">Excelente</span>
+            <span class="color-desc">Más de 5M</span>
+          </div>
         </div>
       </div>
-    {/each}
+    </div>
 
-    <div class="fila">
-      <div class="label-y"></div>
-      {#each siglos as siglo}
-        <div class="label-x">{siglo}s</div>
+    <div class="instrucciones">
+      <p>Pase el cursor sobre un monumento para ver sus detalles. Pase el cursor sobre un siglo para resaltar toda la columna.</p>
+    </div>
+  </div>
+
+  <div class="matriz-container">
+    <!-- Fila de siglos en números romanos (arriba) -->
+    <div class="fila fila-siglos">
+      <div class="label-y-spacer"></div>
+      <div class="celdas-header">
+        {#each siglos as siglo}
+          <div 
+            class="siglo-label" 
+            class:active={activeColumn === siglo}
+            on:mouseenter={(e) => {
+              setActiveColumn(siglo);
+              showSigloTooltip(e, siglo);
+            }}
+            on:mouseleave={() => {
+              clearActiveColumn();
+              hideTooltip();
+            }}
+            role="button"
+            tabindex="0"
+            aria-label={`Siglo ${sigloARomano(siglo)}, años ${siglo} a ${siglo + 99}`}
+          >
+            {sigloARomano(siglo)}
+          </div>
+        {/each}
+      </div>
+    </div>
+    
+    <div class="matriz">
+      {#each continentes as cont}
+        <div class="fila">
+          <div class="label-y">{cont}</div>
+          <div class="celdas">
+            {#each siglos as siglo}
+              <div class="celda" class:active-celda={activeColumn === siglo}>
+                <div class="grid-3x3">
+                  {#each Array(9).fill(null) as _, index}
+                    <div class="celda-pequena">
+                      {#if getMonumentosPorCelda(cont, siglo)[index]}
+                        {@const m = getMonumentosPorCelda(cont, siglo)[index]}
+                        <div
+                          class="monumento"
+                          style="color: {colorCalificacion(m.calificacion)}"
+                          on:mousemove={(e) => showTooltip(e, m)}
+                          on:mouseleave={hideTooltip}
+                          role="img"
+                          aria-label={`Monumento: ${m.nombre}, ${m.calificacion}, ${m.visitas}M visitas`}
+                        >
+                          {@html svgMap[svgPorVisitas(m.visitas)] || ''}
+                        </div>
+                      {/if}
+                    </div>
+                  {/each}
+                </div>
+              </div>
+            {/each}
+          </div>
+        </div>
       {/each}
     </div>
   </div>
 
+  <footer>
+    <div class="footer-content">
+      <p>© {new Date().getFullYear()} - Visualización de monumentos icónicos del mundo</p>
+    </div>
+  </footer>
+
   <div class="tooltip" bind:this={tooltip}></div>
 
 </main>
- 
