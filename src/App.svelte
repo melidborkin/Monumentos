@@ -45,20 +45,20 @@
   }
 
   // Devuelve el nombre del archivo SVG correspondiente según la cantidad de visitas anuales.
-  function svgPorVisitas(visitas) {
-    if (visitas < 1) return "menosde1mm.svg";
-    if (visitas < 1.6) return "1mm1.6mm.svg";
-    if (visitas < 2) return "1.6mm2mm.svg";
-    if (visitas < 2.6) return "2mm2.6mm.svg";
-    if (visitas < 3.5) return "2.6mm3.5mm.svg";
-    if (visitas < 5) return "3.5mm5mm.svg";
-    if (visitas < 7) return "5mm7mm.svg";
-    if (visitas < 9) return "7mm8mm.svg";
-    return "masde9mm.svg";
+  function svgPorAltura(altura) {
+    if (altura < 18) return "menosde18.svg";
+    if (altura < 25) return "18a25.svg";
+    if (altura < 30) return "25a30.svg";
+    if (altura < 38) return "30a38.svg";
+    if (altura < 47) return "38a47.svg";
+    if (altura < 60) return "47a60.svg";
+    if (altura < 80) return "60a80.svg";
+    if (altura < 130) return "80a130.svg";
+    return "masde130.svg";
   }
 
   async function fetchSVGs() {
-    const nombres = monumentos.map(m => svgPorVisitas(m.visitas));
+    const nombres = monumentos.map(m => svgPorAltura(m.altura));
     const unicos = Array.from(new Set(nombres));
     // Modifica el contenido del SVG para permitir cambiar el color con CSS
     for (const nombre of unicos) {
@@ -182,50 +182,50 @@
       <div class="hero-section">
         <div class="hero-content">
           <h1>Monumentos icónicos del mundo</h1>
-          <h2>Una mirada visual a los monumentos más representativos de la historia global. Cada celda representa un siglo. Cada fila, un continente. Cada figura, un monumento. Todo en una sola vista.</h2>
+          <h2>Una mirada visual a los monumentos más representativos de la historia global contruidos entre el año 1000 y 1999.</h2>
         </div>
       </div>
       
       <div class="sistema">
         <div class="leyenda-container">
-          <div class="visitas">
-            <h3>Visitas anuales</h3>
+          <div class="altura">
+            <h3>Altura (medida en metros)</h3>
             <div class="formas">
               <div class="forma">
-                <img src="/images/menosde1mm.svg" alt="Menos de 1 millón de visitas anuales"/>
-                <span>Menos de 1M</span>
+                <img src="/images/menosde18.svg" alt="Menos de 18 metros de altura"/>
+                <span>Menos de 18</span>
               </div>
               <div class="forma">
-                <img src="/images/1mm1.6mm.svg" alt="Entre 1 millón y 1.6 millones de visitas anuales"/>
-                <span>1M – 1.6M</span>
+                <img src="/images/18a25.svg" alt="Entre 18 y 25 metros de altura"/>
+                <span>18–25</span>
               </div>
               <div class="forma">
-                <img src="/images/1.6mm2mm.svg" alt="Entre 1.6 millones y 2 millones de visitas anuales"/>
-                <span>1.6M – 2M</span>
+                <img src="/images/25a30.svg" alt="Entre 25 y 30 metros de altura"/>
+                <span>25–30</span>
               </div>
               <div class="forma">
-                <img src="/images/2mm2.6mm.svg" alt="Entre 2 millones y 2.6 millones de visitas anuales"/>
-                <span>2M – 2.6M</span>
+                <img src="/images/30a38.svg" alt="Entre 30 y 38 metros de altura"/>
+                <span>30–38</span>
               </div>
               <div class="forma">
-                <img src="/images/2.6mm3.5mm.svg" alt="Entre 2.6 millones y 3.5 millones de visitas anuales"/>
-                <span>2.6M – 3.5M</span>
+                <img src="/images/38a47.svg" alt="Entre 38 y 47 metros de altura"/>
+                <span>38–47</span>
               </div>
               <div class="forma">
-                <img src="/images/3.5mm5mm.svg" alt="Entre 3.5 millones y 5 millones de visitas anuales"/>
-                <span>3.5M – 5M</span>
+                <img src="/images/47a60.svg" alt="Entre 47 y 60 metros de altura"/>
+                <span>47–60</span>
               </div>
               <div class="forma">
-                <img src="/images/5mm7mm.svg" alt="Entre 5 millones y 7 millones de visitas anuales"/>
-                <span>5M – 7M</span>
+                <img src="/images/60a80.svg" alt="Entre 60 y 80 metros de altura"/>
+                <span>60–80</span>
               </div>
               <div class="forma">
-                <img src="/images/7mm8mm.svg" alt="Entre 7 millones y 9 millones de visitas anuales"/>
-                <span>7M – 9M</span>
+                <img src="/images/80a130.svg" alt="Entre 80 y 130 metros de altura"/>
+                <span>80–130</span>
               </div>
               <div class="forma">
-                <img src="/images/masde9mm.svg" alt="Más de 9 millones de visitas anuales"/>
-                <span>Más de 9M</span>
+                <img src="/images/masde130.svg" alt="Más de 130 metros de altura"/>
+                <span>Más de 130</span>
               </div>
             </div>
           </div>
@@ -236,33 +236,37 @@
               <div class="color">
                 <div class="color-circle" style="background-color: #912F27;"></div>
                 <span class="color-name">Malo</span>
-                <span class="color-desc">Menos de 1M</span>
               </div>
               <div class="color">
                 <div class="color-circle" style="background-color: #EA7B4D;"></div>
                 <span class="color-name">Regular</span>
-                <span class="color-desc">1M - 2M</span>
               </div>
               <div class="color">
                 <div class="color-circle" style="background-color: #A2D4D3;"></div>
                 <span class="color-name">Bueno</span>
-                <span class="color-desc">2M - 5M</span>
               </div>
               <div class="color">
                 <div class="color-circle" style="background-color: #3B7B78;"></div>
                 <span class="color-name">Excelente</span>
-                <span class="color-desc">Más de 5M</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="instrucciones">
-          <p>Pase el cursor sobre un monumento para ver sus detalles. Pase el cursor sobre un siglo para resaltar toda la columna.</p>
-        </div>
       </div>
 
       <div class="matriz-container">
+
+        <div class="intro"> Cada columna representa un siglo. Cada fila, un continente. Cada figura, un monumento. Todo en una sola vista. 
+        
+          <div class="instrucciones">
+            <p>Pase el cursor sobre un monumento para ver sus detalles. </p>
+          </div>
+        
+        </div>
+        
+        
+
         <!-- Fila de siglos en números romanos (arriba) -->
         <div class="fila fila-siglos">
               <div class="label-y">Siglos</div>
@@ -309,7 +313,7 @@
                               role="img"
                               aria-label={`Monumento: ${m.nombre}, ${m.calificacion}, ${m.visitas}M visitas`}
                             >
-                              {@html svgMap[svgPorVisitas(m.visitas)] || ''}
+                              {@html svgMap[svgPorAltura(m.altura)] || ''}
                             </div>
                           {/if}
                         </div>
@@ -335,7 +339,11 @@
       
       <footer>
         <div class="footer-content">
-          <p>© {new Date().getFullYear()} - Visualización de monumentos icónicos del mundo</p>
+          <p>Dataviz creativa realizada por <b>Guadalupe Koruk</b>, <b>Paz Yunes</b> y <b>Melina Dborkin</b> | Tecnología Digital - Universidad Torcuato Di Tella
+          <br> © {new Date().getFullYear()} - Visualización de monumentos icónicos del mundo
+          <br>
+          <a href="https://github.com/melidborkin/Monumentos" target="_blank">Github</a>  
+          </p>      
         </div>
       </footer>
 
