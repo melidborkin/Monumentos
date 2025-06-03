@@ -257,16 +257,15 @@
 
       <div class="matriz-container">
 
-        <div class="intro"> Cada columna representa un siglo. Cada fila, un continente. Cada figura, un monumento. Todo en una sola vista. 
-        
+        <div class="intro"> 
+          Cada columna representa un siglo. Cada fila, un continente. Cada figura, un monumento. Todo en una sola vista.  
           <div class="instrucciones">
-            <p>Pase el cursor sobre un monumento para ver sus detalles. </p>
-          </div>
-        
+            <p>Pase el cursor sobre un monumento para ver sus detalles. Pase el cursor sobre un siglo para ver su información</p>
+        </div>       
         </div>
         
-        
 
+       
         <!-- Fila de siglos en números romanos (arriba) -->
         <div class="fila fila-siglos">
               <div class="label-y">Siglos</div>

@@ -390,7 +390,6 @@
   }
 
   .siglo-label:hover, .siglo-label.active {
-    background-color: #f0ebe1;
     color: #242c2d;
     transform: translateY(-3px);
   }
@@ -425,7 +424,7 @@
 
   .active-celda {
     background-color: #f0ebe1;
-    box-shadow: 0 0 0 2px #EA7B4D;
+    box-shadow: 0 0 0 2px #869888;
     transform: translateY(-3px);
   }
 
@@ -487,13 +486,14 @@
 
   .tooltip-header {
     padding: 12px 15px;
-    background-color: #6f9194;
+    background-color: #526b54;
     color: white;
     font-weight: 600;
   }
 
   .tooltip-header-siglo {
-    background-color: #6f9194;
+    background-color: #526b54;
+    opacity: 0.7;
   }
 
   .tooltip-content {
