@@ -2,9 +2,8 @@
 
 Este proyecto es una visualización de datos interactiva que representa monumentos históricos alrededor del mundo entre los años 1000 y 1999. La visualización está organizada como una matriz, donde el eje Y agrupa los monumentos por continente y el eje X por siglo de construcción. Cada monumento está representado por una figura SVG cuyo:
 
-- **Color** indica su calificación cultural/turística.
-- **Forma** representa la cantidad de visitas anuales (en millones).
-- **Tamaño** relativo según la altura del monumento.
+- **Color** indica su calificación.
+- **Forma** representa la altura del monumento.
 
 ## 🖥 Ver en vivo
 
